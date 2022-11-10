@@ -1,5 +1,7 @@
 package Forge;
 
+import java.util.Objects;
+
 public class Employee {
     public String name;
     public String department;
@@ -49,5 +51,18 @@ public class Employee {
                 ", salary=" + salary +
                 ", id=" + id +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(name, employee.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }
